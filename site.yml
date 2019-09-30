@@ -1,6 +1,10 @@
 ---
-- name: Ping to all hosts
+- name: Copy template file
   hosts: all
+  vars:
+    group_name: hoge
   tasks:
-    - name: Ping
-      ping:
+    - name: Copy template
+      template:
+        src: test.yml.j2
+        dest: /tmp/test.yml
